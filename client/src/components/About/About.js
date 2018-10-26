@@ -5,7 +5,7 @@ class About extends Component{
     render(){
         return (
             <section className="About">
-                <h2 className="teamheader">Our Team</h2>
+                <h2 className="teamheader">Meet the <b>Team</b></h2>
                 <div className="team">
                     <div className="member">
                         <div className="image color1">
@@ -15,7 +15,7 @@ class About extends Component{
                             <h3 className="name">Kim Huiyeon</h3>
                             <h4 className="name r">Software Developer</h4>
                         </div>
-                        <p className="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                        <p className="description">Penultimate Student in Singapore Management University, pursuing Bs. in Information Systems with Analytics as 2nd major. Aspires to be a Professional Software Developer in the future.</p>
                     </div>
                     <div className="member">
                         <div className="image color2">
@@ -37,22 +37,6 @@ class About extends Component{
                         </div>
                         <p className="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
                     </div>
-                    {/* <div className="member">
-                        <img src={require('./hannahround.png')} alt="" className="member-image image2"/>
-                        <div className="role">
-                            <h3 className="name">Lee Hyeonjeong</h3>
-                            <h4 className="name">Project Manager</h4>
-                        </div>
-                        <p className="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-                    </div>
-                    <div className="member">
-                        <img src={require('./doyeonround.png')} alt="" className="member-image image3"/>
-                        <div className="role">
-                            <h3 className="name">Kim Do Yeon</h3>
-                            <h4 className="name">Data Analyst</h4>
-                        </div>
-                        <p className="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-                    </div> */}
                 </div>
             </section>
         );

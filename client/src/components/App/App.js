@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import About from '../About/About';
 import Landing from '../Landing/Landing';
+import Info from '../Info/Info';
 
 class App extends Component {
   constructor(props){
@@ -21,6 +22,7 @@ class App extends Component {
       return (
         <div className="App">
           <Landing click={this.handleClick}/>
+          <Info />
           <About />        
         </div>
       );

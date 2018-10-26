@@ -8,7 +8,7 @@ import image3 from './background3.jpg';
 import image4 from './background4.jpg';
 import image5 from './background5.jpg';
 import image6 from './background6.jpg';
-
+import Scroll from '../Scroll/Scroll'
 
 class Landing extends Component {
     constructor(props){
@@ -75,6 +75,7 @@ class Landing extends Component {
                 </div>
                 <Button click={this.props.click} text={"Take me there!"} class={"Button"}/>
                 <Button text={this.state.text} class={"Button Text"}/>
+                <Scroll />
             </header>
         )
     }

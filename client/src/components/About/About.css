@@ -1,7 +1,10 @@
 .About{
     min-height: 100vh;
     width:100%;
-    background: #edf1f4;
+    background: url("./background.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
     margin:0;
     padding:0;
     display: grid;
@@ -14,12 +17,23 @@
     grid-row-end: 3;
     margin:auto;
     font-family: 'Roboto', sans-serif;
+    font-weight: 300;
     font-size:50px;
     color: #3498db;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.teamheader > b {
+    padding-left: 10px;
+}
+
+
 .team {
-    width: 80%;
+    width: 90%;
     height: 90%;
     grid-row-start: 3;
     grid-row-end: 11;
@@ -40,6 +54,26 @@
 
 .member:hover{
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    animation: hov 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+@keyframes hov{
+    0%{
+        transform: rotateZ(4deg);
+    }
+    25%{
+        transform: rotateZ(-3deg);
+    }
+    50%{
+        transform: rotateZ(2deg)
+    }
+    75%{
+        transform: rotateZ(-1deg);
+    }
+    100%{
+        transform: rotateZ(0deg);
+    }
 }
 
 .image {
