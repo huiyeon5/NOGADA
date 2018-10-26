@@ -1,0 +1,39 @@
+.Button {
+    border: 3px solid white;
+    z-index: 9999999;
+    width: 15%;
+    height: 50px;
+    margin:auto;
+    grid-row-start: 6;
+    grid-row-end: 7;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.buttontext {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+}
+
+.Button:hover{
+    transform: scale(1.1);
+    cursor: pointer;   
+}
+
+.Text{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    width: 50%;
+    background: rgb(255,255,255,0.9);
+    color: black;
+    border:none;
+}
+
+.Text > .buttontext{
+    color: black;
+}
