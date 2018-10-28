@@ -1,0 +1,131 @@
+.Info{
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(7, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+    background: whitesmoke;
+}
+
+.Infoheader{
+    grid-column-start: 3;
+    grid-column-end: 7;
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.prob {
+    color:#ff7878;
+}
+.obj {
+    color:#84afff;
+}
+
+.section{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.section1{
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 8;
+}
+
+.section2{
+    grid-row-start: 5;
+    grid-row-end: 7;
+    grid-column-start: 2;
+    grid-column-end: 8;
+}
+
+.section1 > .info-image {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.section2 > .info-image {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.section1 > .section-description {
+    grid-column-start: 3;
+    grid-column-end: 8;
+}
+
+.section2 > .section-description {
+    grid-column-start: 3;
+    grid-column-end: 8;
+}
+
+.section-header{
+    padding:0;
+    margin:0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+}
+
+.info-image {
+    width: 50%;
+    margin:auto;
+}
+
+.info-image:hover{
+    animation: hov2 0.5s ease-in;
+}
+
+.info-image:hover  + .section-description{
+    transform: scale(1.1);
+}
+
+.section-description {
+    margin:auto;
+    height: 60%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.section-para{
+    padding:0;
+    margin:0;
+    width: 95%;
+}
+hr { 
+    display: block;
+    height: 1px;
+    border: 0;
+    margin: 1em 0;
+    padding: 0; 
+    width: 30%;
+}
+
+.one{
+    border-top: 5px solid #ff7878;
+}
+.two{
+    border-top: 5px solid #84afff;
+}
+
+
+@keyframes hov2{
+    0%{
+        transform: rotateZ(10deg);
+    }
+    25%{
+        transform: rotateZ(-6deg);
+    }
+    50%{
+        transform: rotateZ(2deg)
+    }
+    75%{
+        transform: rotateZ(-1deg);
+    }
+    100%{
+        transform: rotateZ(0deg);
+    }
+}

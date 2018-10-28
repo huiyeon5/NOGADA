@@ -3,6 +3,9 @@ import './App.css';
 import About from '../About/About';
 import Landing from '../Landing/Landing';
 import Info from '../Info/Info';
+import DataViz1 from '../Test/DataViz1'
+import {Route,NavLink,BrowserRouter} from "react-router-dom";
+
 
 class App extends Component {
   constructor(props){
@@ -27,7 +30,21 @@ class App extends Component {
         </div>
       );
     }else{
-      return <div onClick={this.handleClick}>HELLOOOO</div>
+      return(
+        <div>
+        <BrowserRouter>
+        <div>
+          <h1>Data Visualisation</h1>
+          <ul className="header">
+            <li><NavLink to="/Test/DataViz1">DataViz1</NavLink></li>
+          </ul>
+          <div className="content">
+             <Route exact path="/Test/DataViz1" component={DataViz1}/>
+          </div>
+        </div>
+        </BrowserRouter>  
+        </div>
+      );
     }
   }
 }

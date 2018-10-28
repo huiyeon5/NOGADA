@@ -7,7 +7,7 @@ class Info extends Component {
             <div className="Info">
                 <h2 className="Infoheader">Our <b className="prob">Problem</b> & <b className="obj">Objective</b></h2>
                 <div className="section section1">
-                    <img src={require('./Problem.png')} alt="" srcset="" className="info-image"/>
+                    <img src={require('./Problem.png')} alt="" srcSet="" className="info-image"/>
                     <div className="section-description">
                         <h3 className="section-header">Problem</h3>
                         <hr className="one"/>
@@ -15,7 +15,7 @@ class Info extends Component {
                     </div>
                 </div>
                 <div className="section section2">
-                    <img src={require('./Objectives.png')} alt="" srcset="" className="info-image"/>
+                    <img src={require('./Objectives.png')} alt="" srcSet="" className="info-image"/>
                     <div className="section-description">
                         <h3 className="section-header">Objectives</h3>
                         <hr className="two"/>
