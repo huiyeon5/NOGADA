@@ -73,8 +73,8 @@ class Landing extends Component {
                     <h1 className="title">NO.G.A.D.A</h1>
                     <h2 className="tag"><i>Visualizing Korean Tourism</i></h2>
                 </div>
-                <Button click={this.props.click} text={"Take me there!"} class={"Button"}/>
-                <Button text={this.state.text} class={"Button Text"}/>
+                <div className="Pic-text"><span>{this.state.text}</span></div>
+                <Button direct={"/dashboard"} text={"Take me there!"} class={["dash", "dash-button"]}/>
                 <Scroll />
             </header>
         )

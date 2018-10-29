@@ -1,43 +1,32 @@
-.Button {
-    border: 3px solid white;
-    background:white;
-    z-index: 9999999;
-    width: 60%;
-    height: 50px;
-    margin:auto;
+@import url('https://fonts.googleapis.com/css?family=Charmonman');
+.dash{
+    z-index: 100000000000;
     grid-row-start: 6;
     grid-row-end: 7;
     grid-column-start: 4;
-    grid-column-end: 5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
+    grid-column-end: 5; 
+    width: 70%;
+    height: 50%;
+    margin:auto;
 }
 
-.buttontext {
-    color: black;
+.dash-button{
+    z-index: 100000000000;
+    width:100%;
+    height: 100%;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    border-radius: 50px;
+    background: linear-gradient(to right, #c33764, #1d2671);
+    color:white;
+    box-shadow: 1px -1px 56px -7px rgba(0,0,0,0.75);
+    transition: all 0.3s ease;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
+    padding:0;
 }
 
-.Button:hover{
+.dash-button:hover{
     transform: scale(1.1);
-    cursor: pointer;   
-}
-
-.Text{
-    width: 50%;
-    font-style: italic; 
-    color: white;
-    border:none;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    grid-column-start: 4;
-    grid-column-end: 5;
-    background: none;
-}
-
-.Text > .buttontext{
-    color: white;
 }
