@@ -1,0 +1,53 @@
+.MainMenu {
+    margin:auto;
+    width: 95%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: repeat(3,90px);
+    grid-gap: 50px;
+}
+
+.menuButton {
+    color: #878f9b;
+    background:none;
+    border:none;
+    margin: 0;
+    padding:0;
+    width:100%;
+    height:90%;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.menuDiv:not(.active):hover{
+    background: #e2e8f5;
+}
+
+.active{
+    background: linear-gradient(to right, #fe6f62 2%,#e2e8f5 2%);
+    color: #fe6f62;
+}
+
+.active > .buttonLogo {
+    color: #fe6f62;
+}
+.active > .menuButton {
+    color: #fe6f62;
+}
+
+.menuDiv {
+    display:grid;
+    grid-template-rows: 1fr 1fr;
+    cursor: pointer;
+}
+
+.buttonLogo {
+    padding:0;
+    margin:auto;
+    font-size: 25px;
+    color: #878f9b;
+}

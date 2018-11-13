@@ -1,0 +1,19 @@
+.Head{
+    grid-column-start: 2;
+    grid-column-end: 18;
+    width:100%;
+    height:100%;
+    background:#4c58a4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.head-text{
+    color:white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    /* font-style: italic; */
+    transition: all 0.3s ease;
+}
+

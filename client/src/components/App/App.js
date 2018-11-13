@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 import Start from '../Start/Start';
 import Dashboard from '../Dashboard/Dashboard';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-        direct: false
+            direct: false
         };
     }
 
@@ -20,10 +20,10 @@ class App extends Component {
     render() {
         return(
             <Router>
-                <div>
-                    <Route exact={true} path="/" component={Start} />
-                    <Route exact path="/dashboard" component={Dashboard} />
-                </div>
+                <Switch>
+                    <Route exact path="/" component={Start} />
+                    <Route path="/dashboard" component={Dashboard} />
+                </Switch>
             </Router>
         );
     }
