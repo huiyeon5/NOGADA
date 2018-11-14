@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200|Open+Sans');
 .Info{
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     display: grid;
-    grid-template-rows: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
     grid-template-columns: repeat(8, 1fr);
     background: whitesmoke;
 }
@@ -25,7 +26,9 @@
 
 .section{
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+            "image desc desc desc";
 }
 
 .section1{
@@ -36,29 +39,25 @@
 }
 
 .section2{
-    grid-row-start: 5;
+    grid-row-start: 4;
     grid-row-end: 7;
     grid-column-start: 2;
     grid-column-end: 8;
 }
 
 .section1 > .info-image {
-    grid-column-start: 1;
-    grid-column-end: 3;
+    grid-area: image;
 }
 
 .section2 > .info-image {
-    grid-column-start: 1;
-    grid-column-end: 3;
+    grid-area: image;
 }
 .section1 > .section-description {
-    grid-column-start: 3;
-    grid-column-end: 8;
+    grid-area: desc;
 }
 
 .section2 > .section-description {
-    grid-column-start: 3;
-    grid-column-end: 8;
+    grid-area: desc;
 }
 
 .section-header{
@@ -83,11 +82,12 @@
 
 .section-description {
     margin:auto;
-    height: 60%;
+    /* height: 50%; */
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     transition: all 0.3s ease;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .section-para{
@@ -127,5 +127,30 @@ hr {
     }
     100%{
         transform: rotateZ(0deg);
+    }
+}
+
+@media only screen 
+and (min-width : 375px) 
+and (max-width : 667px) 
+and (orientation : portrait) { 
+    .section{
+        display: grid;
+        grid-template-areas:
+                    "image image image image"
+                    "desc desc desc desc";
+    }
+    .section1{
+        grid-row-start: 2;
+        grid-row-end: 4;
+        grid-column-start: 1;
+        grid-column-end: 9;
+    }
+    
+    .section2{
+        grid-row-start: 4;
+        grid-row-end: 7;
+        grid-column-start: 1;
+        grid-column-end: 9;
     }
 }

@@ -51,3 +51,22 @@
     font-size: 25px;
     color: #878f9b;
 }
+
+.menuButton:active{
+    border:none;
+}
+.menuButton:focus{
+    border:none;
+}
+
+.menuButton:visited{
+    border:none;
+}
+
+
+
+button::-moz-focus-inner {
+    border: 0;
+  }
+  
+  

@@ -49,7 +49,15 @@ class Dashboard extends Component {
         this.setState({index});
     }
 
-    render() {  
+    render() {
+        var visual;
+        if(this.state.index === 1){
+            visual = <DataViz1 />
+        }else if(this.state.index === 2){
+            visual = <DataViz2 />
+        }else{
+            visual = <DataViz3 />
+        }
         return ( 
             <div className="dashboard-div" onLoad={this.bye}>
                 <div className="loading" >
@@ -65,6 +73,9 @@ class Dashboard extends Component {
                             <FontAwesomeIcon icon="home" className="home-icon"/>
                         </div>
                         <MainMenu setIndex={this.setIndex} />
+                    </div>
+                    <div className="mainpage">
+                        {visual}
                     </div>
                 </div>
             </div>  
