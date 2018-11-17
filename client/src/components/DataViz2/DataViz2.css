@@ -1,0 +1,61 @@
+.LineChart{
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); */
+    width:95%;
+    min-width: 650px;
+    height:90%;
+    min-height: 270px;
+    /* border-radius: 5px; */
+}
+
+.dataviz2{
+    width:100%;
+    min-height:100%;
+    display: grid;
+    grid-template-columns: repeat(auto,250px);
+    grid-template-rows: repeat(auto,200px);
+}
+
+.line {
+    width:100%;
+    height:100%;
+    padding:0;
+    margin:0;
+}
+
+.genderchart{
+    grid-row-start: 3;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin:auto;
+    /* border-radius: 5px; */
+    background: rgb(255, 255, 255);
+    /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); */
+    width:95%;
+    height:95%;
+    min-width: 650px;
+    min-height: 270px;
+}
+
+.Male {
+    grid-area: male;
+    width:100%;
+}
+
+.Female { 
+    grid-area: female;
+    transform: rotateY(180deg);
+}
+

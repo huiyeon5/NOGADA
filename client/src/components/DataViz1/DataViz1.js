@@ -1,5 +1,6 @@
 import React, { Component } from 'react';  
 import tableau from 'tableau-api';
+import './DataViz1.css';
   
 class DataViz1 extends Component {
     constructor(props){
