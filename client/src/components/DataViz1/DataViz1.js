@@ -18,7 +18,7 @@ class DataViz1 extends Component {
   
   
     initViz() {  
-        const vizUrl = 'https://public.tableau.com/views/Seasonality_VAproject_draft5/DASHBOARDONE?:embed=y&:display_count=yes&publish=yes';  
+        const vizUrl = 'https://public.tableau.com/shared/S2SMFZT8R?:display_count=yes';  
         const vizContainer = this.vizContainer;  
         let viz = new window.tableau.Viz(vizContainer, vizUrl);
         this.setState({viz});

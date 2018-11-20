@@ -1,0 +1,10 @@
+.SVGTEXT {
+    transform: rotateY(180deg);
+    font-family: 'Open Sans',sans-serif;
+    font-size:14px;
+}
+
+.normaltext {
+    font-family: 'Open Sans',sans-serif;
+    font-size:14px;
+}

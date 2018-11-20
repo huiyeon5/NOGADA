@@ -62,13 +62,13 @@
 }
 
 .gohome:hover{
-    color:#fe6f62;
+    color:#f83a29;
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .gohome:hover .goHomeText{
-    color:#fe6f62;
+    color:#f83a29;
     transform: scale(1.1);
     transition: all 0.3s ease;
     cursor: pointer;
