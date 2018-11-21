@@ -1,0 +1,99 @@
+#map {
+    height: 95%;
+    width: 95%;
+    grid-area: mapid;
+    margin:auto;
+}
+
+.LineChart3{
+    height: 100%;
+    width: 100%;
+    grid-area: LineChart3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dataviz3_2 {
+    width:100%;
+    height:100%;
+    position: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+            "mapid showtext"
+            "LineChart3 LineChart3";
+}
+
+.showRegionText{
+    grid-area: showtext;
+    width:95%;
+    height:95%;
+    background: white;
+    margin:auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "city city"
+        "attraction reset";
+}
+
+.cityname {
+    grid-area: city;
+    width:100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:50px;
+    font-family: 'Montserrat', sans-serif;
+    background: #00c484;
+}
+
+.attractionname {
+    grid-area: attraction;
+    width:100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:25px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    background: #00c484;
+}
+
+.resets {
+    grid-area: reset;
+    width:100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background:#fe6f62;
+    cursor: pointer;
+}
+
+.reset-icon {
+    font-size:40px;
+}
+
+.resets > span {
+    font-size:16px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(-360deg);
+    }
+    0% {
+        transform:  rotateZ(0deg);
+    }
+}

@@ -1,6 +1,6 @@
 const express = require('express');
 const pgp = require('pg-promise')();
-const db = pgp("postgres://postgres:admin@localhost:5432/Dashboard")
+const db = pgp("postgres://postgres:0000@localhost:5432/Dashboard")
 const app = express();
 var bodyParser = require("body-parser");
 const port = process.env.PORT || 5000;
@@ -243,6 +243,220 @@ function getGenderCountry(req, res, next) {
       }
 
       returnData.push(tempList);
+      res.status(200)
+        .json({
+          status: 'success',
+          data: returnData
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+app.post('/getlocal',getlocal)
+app.post('/getlocalY',getlocalY)
+app.post('/getTourist_attraction',getTourist_attraction)
+
+app.post('/getno_of_visitors_onT',getno_of_visitors_onT)
+app.post('/getno_of_visitors_onTY',getno_of_visitors_onTY)
+app.get('/getcities',getcities)
+app.post('/getForeigner',getForeigner)
+app.post('/getAttraction',getAttraction)
+app.post('/getForeigner_FilterY',getForeigner_FilterY)
+
+
+
+function getcities(req, res, next) {
+  var sql = "select distinct city from tourist_attraction;";
+  var returnData  = [];
+  db.any(sql)
+    .then(function (data) {
+      res.status(200)
+        .json({
+          status: 'success',
+          data: data
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
+
+
+
+
+function getlocal(req, res, next) {
+  var sql = "select distinct date,local_foreigner, sum(no_of_visitors),x,y from tourist_attraction where local_foreigner is not null group by date,local_foreigner,x,y  order by date,x,y,local_foreigner asc" ;
+  var returnData  = [];
+  db.any(sql)
+    .then(function (data) {
+      for(var i = 0; i < data.length-1; i = i + 2){
+        var temp = {}
+        temp['label'] = data[i]['date'];
+        temp['x'] = data[i]['x'];
+        temp['y'] = data[i]['y'];
+        temp['Foreigner'] =data[i]['sum'];
+        temp['Local'] = data[i+1]['sum'];
+        returnData.push(temp);
+      }
+      res.status(200)
+        .json({
+          status: 'success',
+          data: returnData
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
+function getlocalY(req, res, next) {
+  var sql = `select distinct date,local_foreigner, sum(no_of_visitors),x,y from tourist_attraction where local_foreigner is not null and date >= '${req.body.Year}-01-01'::date and date <'${req.body.Year+1}-01-01'::date group by date,local_foreigner,x,y  order by date,x,y,local_foreigner asc` ;
+  var returnData  = [];
+  db.any(sql)
+    .then(function (data) {
+      for(var i = 0; i < data.length-1; i = i + 2){
+        var temp = {}
+        temp['label'] = data[i]['date'];
+        temp['x'] = data[i]['x'];
+        temp['y'] = data[i]['y'];
+        temp['Foreigner'] =data[i]['sum'];
+        temp['Local'] = data[i+1]['sum'];
+        returnData.push(temp);
+      }
+      res.status(200)
+        .json({
+          status: 'success',
+          data: returnData
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
+function getForeigner(req, res, next) {
+  var sql = "select date,local_foreigner,sum(no_of_visitors) from tourist_attraction where local_foreigner is not null group by date,local_foreigner order by date,local_foreigner" ;
+  var returnData  = [];
+  db.any(sql)
+    .then(function (data) {
+      for(var i = 0; i < data.length-1; i = i + 2){
+        var temp = {}
+        temp['label'] = data[i]['date'];
+        temp['Foreigner'] =data[i]['sum'];
+        temp['Local'] = data[i+1]['sum'];
+        returnData.push(temp);
+      }
+      res.status(200)
+        .json({
+          status: 'success',
+          data: returnData
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
+function getAttraction(req, res, next) {
+  var sql = `select distinct tourist_attraction from tourist_attraction where x='${req.body.lat}' and y ='${req.body.lng}'` ;
+  var returnData  = [];
+  db.any(sql)
+    .then(function (data) {
+      res.status(200)
+        .json({
+          status: 'success',
+          data: data
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
+function getForeigner_FilterY(req, res, next) {
+  var sql = `select date,local_foreigner,sum(no_of_visitors) from tourist_attraction where local_foreigner is not null and date >= '${req.body.Year}-01-01'::date and date <'${req.body.Year+1}-01-01'::date  group by date,local_foreigner order by date,local_foreigner` ;
+  var returnData  = [];
+  db.any(sql)
+    .then(function (data) {
+      for(var i = 0; i < data.length-1; i = i + 2){
+        var temp = {}
+        temp['label'] = data[i]['date'];
+        temp['Foreigner'] =data[i]['sum'];
+        temp['Local'] = data[i+1]['sum'];
+        returnData.push(temp);
+      }
+      res.status(200)
+        .json({
+          status: 'success',
+          data: returnData
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
+function getTourist_attraction(req, res, next) {
+  var sql = `select distinct x,y from tourist_attraction where x IS not null and city ='${req.body.city}'` ;
+  var returnData  = [];
+  db.any(sql)
+    .then(function (data) {
+      for(var i = 0; i < data.length-1; i = i+1){
+        var temp = {}
+        temp['x'] = data[i]['x'];
+        temp['y'] =data[i]['y']
+        returnData.push(temp);
+      }
+      res.status(200)
+        .json({
+          status: 'success',
+          data: returnData
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
+function getno_of_visitors_onTY(req, res, next) {
+  var sql = `select city ,local_foreigner,sum(no_of_visitors) as sum,date from tourist_attraction where local_foreigner is not null and city='${req.body.city}' and date >= '${req.body.Year}-01-01'::date and date <'${req.body.Year+1}-01-01'::date  group by city,local_foreigner,date order by date,local_foreigner,city`; 
+  var returnData  = [];
+  db.any(sql)
+    .then(function (data) {
+      for(var i = 0; i < data.length; i = i+2){
+        var temp = {}
+        temp['city'] = data[i]['city'];
+        temp['Foreigner']=data[i]['sum']
+        temp['Local']=data[i+1]['sum']
+        temp['date']=data[i]['date']
+        returnData.push(temp);
+      }
+      res.status(200)
+        .json({
+          status: 'success',
+          data: returnData
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
+function getno_of_visitors_onT(req, res, next) {
+  var sql = `select city ,local_foreigner,sum(no_of_visitors) as sum,date from tourist_attraction where local_foreigner is not null and city='${req.body.city}' group by city,local_foreigner,date order by date,local_foreigner,city`; 
+  var returnData  = [];
+  db.any(sql)
+    .then(function (data) {
+      for(var i = 0; i < data.length; i = i+2){
+        var temp = {}
+        temp['city'] = data[i]['city'];
+        temp['Foreigner']=data[i]['sum']
+        temp['Local']=data[i+1]['sum']
+        temp['date']=data[i]['date']
+        returnData.push(temp);
+      }
       res.status(200)
         .json({
           status: 'success',
