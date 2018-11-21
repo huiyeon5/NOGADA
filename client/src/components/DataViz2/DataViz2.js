@@ -369,7 +369,7 @@ class DataViz2 extends Component {
         let lines = null;
         if(this.state.selectedPurpose === null){
             lines = (
-                <LineChart width={650} height={250} data={this.state.purpose} className="line">
+                <LineChart width={470} height={190} data={this.state.purpose} className="line">
                     <CartesianGrid strokeDasharray="2 2"/>
                     <XAxis dataKey="label" className="xaxiss" tick={<CustomizedAxisTick cname="normaltext" textA={'middle'} dy={12} date={true}/>}/>
                     <YAxis />
@@ -383,7 +383,7 @@ class DataViz2 extends Component {
             );
         }else if(this.state.selectedPurpose === 'Tourism'){
             lines = (
-                <LineChart width={650} height={250} data={this.state.purpose} className="line">
+                <LineChart width={470} height={190} data={this.state.purpose} className="line">
                     <CartesianGrid strokeDasharray="2 2"/>
                     <XAxis dataKey="label" className="xaxiss" tick={<CustomizedAxisTick cname="normaltext" textA={'middle'} dy={12} date={true}/>}/>
                     <YAxis />
@@ -394,7 +394,7 @@ class DataViz2 extends Component {
             )
         }else if(this.state.selectedPurpose === 'Business/Commerce'){
             lines = (
-                <LineChart width={650} height={250} data={this.state.purpose} className="line">
+                <LineChart width={470} height={190} data={this.state.purpose} className="line">
                     <CartesianGrid strokeDasharray="2 2"/>
                     <XAxis dataKey="label" className="xaxiss" tick={<CustomizedAxisTick cname="normaltext" textA={'middle'} dy={12} date={true}/>}/>
                     <YAxis />
@@ -405,7 +405,7 @@ class DataViz2 extends Component {
             )
         }else if(this.state.selectedPurpose === 'Education'){
             lines = (
-                <LineChart width={650} height={250} data={this.state.purpose} className="line">
+                <LineChart width={470} height={190} data={this.state.purpose} className="line">
                     <CartesianGrid strokeDasharray="2 2"/>
                     <XAxis dataKey="label" className="xaxiss" tick={<CustomizedAxisTick cname="normaltext" textA={'middle'} dy={12} date={true}/>}/>
                     <YAxis />
@@ -416,7 +416,7 @@ class DataViz2 extends Component {
             )
         }else if(this.state.selectedPurpose === 'Others'){
             lines = (
-                <LineChart width={650} height={250} data={this.state.purpose} className="line">
+                <LineChart width={470} height={190} data={this.state.purpose} className="line">
                     <CartesianGrid strokeDasharray="2 2"/>
                     <XAxis dataKey="label" className="xaxiss" tick={<CustomizedAxisTick cname="normaltext" textA={'middle'} dy={12} date={true}/>}/>
                     <YAxis />
@@ -430,53 +430,71 @@ class DataViz2 extends Component {
         return (
             <div className="dataviz2">
                 <div className="LineChart">
-                    {lines}
+                    <div className="chartheader">
+                        <h2 className="headertext">Trend in Purpose of Visit</h2>
+                        <h4 className="headerline">View the trend in different purposes of visit.</h4>
+                    </div>
+                    <div className="linechart">
+                        {lines}
+                    </div>
                 </div>
                 <div className="genderchart">
-                    <BarChart width={280} height={250} data={this.state.gender[0]} className="Female" layout="vertical" syncId="anyId">
-                        <CartesianGrid strokeDasharray="3 3"/>
-                        <XAxis type="number" tick={<CustomizedAxisTick cname="SVGTEXT" textA={'middle'} dy={12}/>}  className="xaxiss" domain={[0, 3000]}/>
-                        <YAxis orientation="left" dataKey="age_group" type="category" hide={true} tick={true} reversed={true}/>
-                        <Tooltip labelStyle={style} itemStyle={style}/>
-                        <Legend wrapperStyle={{
-                            transform: "rotateY(180deg)"
-                        }} payload={[{value:"Avg. of Females", type: 'line', id: 'ID01'}]}/>
-                        <Bar dataKey="avg" fill="#ee7989" />
-                    </BarChart>
-                    <BarChart width={350} height={250} data={this.state.gender[1]} className="Male" layout="vertical" syncId="anyId">
-                        <CartesianGrid strokeDasharray="3 3"/>
-                        <XAxis type="number" className="xaxiss" domain={[0, 3000]} tick={<CustomizedAxisTick cname="normaltext" textA={'middle'} dy={12}/>}/>
-                        <YAxis dataKey="age_group" type="category" reversed={true} tick={<CustomizedAxisTick cname="normaltext" textA={'end'} dy={5}/>}/>
-                        <Tooltip />
-                        <Legend payload={[{value:"Avg. of Males", type: 'line', id: 'ID01'}]}/>
-                        <Bar dataKey="avg" fill="#4682b4" />
-                    </BarChart>
+                    <div className="chartheader">
+                        <h2 className="headertext">Distribution of Age Group by Gender</h2>
+                        <h4 className="headerline">Hover to compare the number of visitors in each category.</h4>
+                    </div>
+                    <div className="barchart">
+                        <BarChart width={180} height={190} data={this.state.gender[0]} className="Female" layout="vertical" syncId="anyId">
+                            <CartesianGrid strokeDasharray="3 3"/>
+                            <XAxis type="number" tick={<CustomizedAxisTick cname="SVGTEXT" textA={'middle'} dy={12}/>}  className="xaxiss" domain={[0, 3000]}/>
+                            <YAxis orientation="left" dataKey="age_group" type="category" hide={true} tick={true} reversed={true}/>
+                            <Tooltip labelStyle={style} itemStyle={style}/>
+                            <Legend wrapperStyle={{
+                                transform: "rotateY(180deg)"
+                            }} payload={[{value:"Avg. of Females", type: 'line', id: 'ID01'}]}/>
+                            <Bar dataKey="avg" fill="#ee7989" />
+                        </BarChart>
+                        <BarChart width={250} height={190} data={this.state.gender[1]} className="Male" layout="vertical" syncId="anyId">
+                            <CartesianGrid strokeDasharray="3 3"/>
+                            <XAxis type="number" className="xaxiss" domain={[0, 3000]} tick={<CustomizedAxisTick cname="normaltext" textA={'middle'} dy={12}/>}/>
+                            <YAxis dataKey="age_group" type="category" reversed={true} tick={<CustomizedAxisTick cname="normaltext" textA={'end'} dy={5}/>}/>
+                            <Tooltip />
+                            <Legend payload={[{value:"Avg. of Males", type: 'line', id: 'ID01'}]}/>
+                            <Bar dataKey="avg" fill="#4682b4" />
+                        </BarChart>
+                    </div>
                 </div>
                 <div className="genderpurpose">
-                    <BarChart width={650} height={250} data={this.state.genPurpose}
-                                margin={{top: 5, right: 30, left: 20, bottom: 5}} onClick={this.handleBarClick}>
-                        <CartesianGrid strokeDasharray="3 3"/>
-                        <XAxis dataKey="purpose" className="xaxiss" tick={<CustomizedAxisTick cname="normaltext" textA={'middle'} dy={12}/>}/>
-                        <YAxis/>
-                        <Tooltip labelStyle={{fontFamily: "'Montserrat',sans-serif"}} itemStyle={{fontFamily: "'Montserrat',sans-serif"}}/>
-                        <Legend />
-                        <Bar dataKey="Female" fill="#ee7989">
+                    <div className="chartheader">
+                        <h2 className="headertext">Distribution of Purpose by Gender</h2>
+                        <h4 className="headerline">Click a Purpose to see the specific trend in the above chart.</h4>
+                    </div>
+                    <div className="barchart">
+                        <BarChart width={470} height={190} data={this.state.genPurpose}
+                                    margin={{top: 5, right: 30, left: 20, bottom: 5}} onClick={this.handleBarClick}>
+                            <CartesianGrid strokeDasharray="3 3"/>
+                            <XAxis dataKey="purpose" className="xaxiss" tick={<CustomizedAxisTick cname="normaltext" textA={'middle'} dy={12}/>}/>
+                            <YAxis/>
+                            <Tooltip labelStyle={{fontFamily: "'Montserrat',sans-serif"}} itemStyle={{fontFamily: "'Montserrat',sans-serif"}}/>
+                            <Legend />
+                            <Bar dataKey="Female" fill="#ee7989">
+                                {
+                                    this.state.genPurpose !== null ?
+                                    this.state.genPurpose.map((entry, index) => (
+                                        <Cell cursor="pointer" fill="#ee7989" stroke={index === this.state.activeIndex ? "#000" : null} key={`cell-${index}`} strokeWidth={index === this.state.activeIndex ? 2 : 1}/>
+                                    )) : null
+                                }
+                            </Bar>
+                            <Bar dataKey="Male" fill="#4682b4">
                             {
                                 this.state.genPurpose !== null ?
                                 this.state.genPurpose.map((entry, index) => (
-                                    <Cell cursor="pointer" fill="#ee7989" stroke={index === this.state.activeIndex ? "#000" : null} key={`cell-${index}`} strokeWidth={index === this.state.activeIndex ? 2 : 1}/>
-                                )) : null
-                            }
-                        </Bar>
-                        <Bar dataKey="Male" fill="#4682b4">
-                        {
-                            this.state.genPurpose !== null ?
-                            this.state.genPurpose.map((entry, index) => (
-                                <Cell cursor="pointer" fill="#4682b4" stroke={index === this.state.activeIndex ? "#000" : null} key={`cell-${index}`} strokeWidth={index === this.state.activeIndex ? 2 : 1}/>
-                            )) : null
-                        }
-                        </Bar>
-                    </BarChart>
+                                    <Cell cursor="pointer" fill="#4682b4" stroke={index === this.state.activeIndex ? "#000" : null} key={`cell-${index}`} strokeWidth={index === this.state.activeIndex ? 2 : 1}/>
+                                    )) : null
+                                }
+                            </Bar>
+                        </BarChart>
+                    </div>
                 </div>
                 <div className="filter">
                     <div className="filters">

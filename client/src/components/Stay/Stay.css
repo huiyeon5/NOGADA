@@ -2,12 +2,14 @@
 
 .length{
     font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
 }
 
 .day {
     font-family: 'Montserrat', sans-serif;
     font-size: 40px;
     transition: all 0.3s ease;
+    font-weight: 200;
 }
 
 .Stay {

@@ -4,15 +4,17 @@
     grid-column-start: 1;
     grid-column-end: 2;
     margin:auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    grid-template-areas: 
+                "chartheader"
+                "chartheaderline";
     background: rgb(255, 255, 255);
     /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); */
-    width:97%;
-    height:95%;
-    min-width: 650px;
-    min-height: 280px;
+    width:93%;
+    height:93%;
+    min-width: 500px;
+    min-height: 200px;
     /* border-radius: 5px; */
 }
 
@@ -24,11 +26,15 @@
     grid-template-rows: 50% 50%;
 }
 
-.line {
+.linechart {
     width:100%;
     height:100%;
     padding:0;
     margin:0;
+    grid-area: chartheaderline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .genderchart{
@@ -36,17 +42,19 @@
     grid-row-end: 3;
     grid-column-start: 2;
     grid-column-end: 3;
-    display: flex;
-    justify-content: center;
-    align-items:center;
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    grid-template-areas: 
+                "chartheader"
+                "chartheaderline";
     margin:auto 0;
     /* border-radius: 5px; */
     background: rgb(255, 255, 255);
     /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); */
-    width:97%;
-    height:95%;
-    min-width: 650px;
-    min-height: 280px;
+    width:93%;
+    height:93%;
+    min-width: 500px;
+    min-height: 200px;
 }
 
 .Male {
@@ -60,14 +68,16 @@
 }
 
 .genderpurpose{
-    width:97%;
-    height:95%;
-    min-width: 650px;
-    min-height: 280px;
+    width:93%;
+    height:93%;
+    min-width: 500px;
+    min-height: 200px;
     grid-row: 2 / 3;
-    display: flex;
-    justify-content: center;
-    align-items:center;
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    grid-template-areas: 
+                "chartheader"
+                "chartheaderline";
     margin:auto;
     /* border-radius: 5px; */
     background: rgb(255, 255, 255);
@@ -76,15 +86,16 @@
 
 .xaxiss {
     font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
 }
 
 .filter {
     grid-row: 1 / 2;
     grid-column: 2 / 3;
-    width:97%;
-    height:95%;
-    min-width: 650px;
-    min-height: 280px;
+    width:93%;
+    height:93%;
+    min-width: 500px;
+    min-height: 200px;
     margin: auto 0;
     display: grid;
     grid-template-rows: 1fr 1fr;
@@ -108,6 +119,7 @@
                     "filtersubmit filtersubmit resetfilter";                 
     background: white;
     font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
     font-size: 13px;
 }
 
@@ -250,4 +262,43 @@
 .recharts-legend-item-text {
     font-family: 'Open Sans', sans-serif;
     font-size:12px;
+}
+
+.chartheader {
+    grid-area: chartheader;
+    width: 100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-around;
+    margin:auto;
+}
+
+.headertext {
+    margin:0;
+    padding:0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #143c67;
+}
+
+.headerline {
+    margin:0;
+    padding:0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color:#b6922e;
+    font-size: 14px;
+}
+
+.barchart {
+    width:100%;
+    height:100%;
+    padding:0;
+    margin:0;
+    grid-area: chartheaderline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

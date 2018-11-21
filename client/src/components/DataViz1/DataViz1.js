@@ -18,7 +18,7 @@ class DataViz1 extends Component {
   
   
     initViz() {  
-        const vizUrl = 'https://public.tableau.com/shared/S2SMFZT8R?:display_count=yes';  
+        const vizUrl = 'https://public.tableau.com/views/VAProject181118j/Story1?:embed=y&:display_count=yes&publish=yes';  
         const vizContainer = this.vizContainer;  
         let viz = new window.tableau.Viz(vizContainer, vizUrl);
         this.setState({viz});
@@ -27,7 +27,9 @@ class DataViz1 extends Component {
   
     render() {  
         return (  
-            <div className="Tab" ref={(div) => { this.vizContainer = div }}></div>  
+            <div className="tableauu">
+                <div className="Tab" ref={(div) => { this.vizContainer = div }}></div>  
+            </div>
         );  
     }  
 }  

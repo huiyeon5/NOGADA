@@ -35,21 +35,11 @@ function getAllGenderPurpose(req, res, next) {
         temp['Male'] = data[i + 1]['avg']
         returnData.push(temp)
       }
-
-      let temp2 = {};
-      for(let i = 0; i < returnData.length; i++){
-        temp = returnData[i];
-        for(let j = i + 1; j < returnData.length; j++){
-          temp2 = returnData[j];
-          let sum1 = temp['Female'] + temp['Male'];
-          let sum2 = temp2['Female'] + temp2['Male'];
-          if(sum2 > sum1){
-            let change = returnData[i];
-            returnData[i] = returnData[j];
-            returnData[j] = change;
-          }
-        }
-      }
+      
+      returnData.sort((a,b) => {
+        (b['Female'] + b['Male']) - (a['Female'] + a['Male'])
+      })
+      returnData.reverse();
       res.status(200)
         .json({
           status: 'success',
@@ -76,20 +66,10 @@ function getGenderPurposeCountry(req, res, next) {
         returnData.push(temp)
       }
 
-      let temp2 = {};
-      for(let i = 0; i < returnData.length; i++){
-        temp = returnData[i];
-        for(let j = i + 1; j < returnData.length; j++){
-          let temp2 = returnData[j];
-          let sum1 = temp['Female'] + temp['Male'];
-          let sum2 = temp2['Female'] + temp2['Male'];
-          if(sum2 > sum1){
-            let change = returnData[i];
-            returnData[i] = returnData[j];
-            returnData[j] = change;
-          }
-        }
-      }
+      returnData.sort((a,b) => {
+        (b['Female'] + b['Male']) - (a['Female'] + a['Male'])
+      })
+      returnData.reverse();
       res.status(200)
         .json({
           status: 'success',
