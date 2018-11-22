@@ -15006,7 +15006,7 @@ class DataViz3 extends Component {
                     "name": "부산광역시",
                     "name_eng": "Busan",
                     "base_year": 2018,
-                    "Touirst_Visitors":9551364
+                    "Tourist_Visitors":9551364
 
                 },
                 "geometry": {
@@ -15510,27 +15510,27 @@ class DataViz3 extends Component {
                 }
             ]
         }
-        
+
         var legend = L.control({position: 'bottomright'});
 
         legend.onAdd = function (map) {
 
-        var div = L.DomUtil.create('div', 'info legend'),
-            grades = [2000000, 5500000, 10000000, 15000000, 25000000, 30000000, 70000000],
-            labels = [];
+            var div = L.DomUtil.create('div', 'info legend'),
+                grades = [2000000, 5500000, 10000000, 15000000, 25000000, 30000000, 70000000],
+                labels = [];
 
-        // loop through our density intervals and generate a label with a colored square for each interval
-        for (var i = 0; i < grades.length; i++) {
-            div.innerHTML +=
-                '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-        }
+            // loop through our density intervals and generate a label with a colored square for each interval
+            for (var i = 0; i < grades.length; i++) {
+                div.innerHTML +=
+                    '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                    grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+            }
 
-        return div;
-    };
+            return div;
+        };
 
-legend.addTo(map);
-
+    legend.addTo(map);
+        
         L.geoJSON(geojsondata).addTo(this.map);
         this.setState({geojsondata});
         function getColor(d) {
@@ -15706,7 +15706,6 @@ legend.addTo(map);
             let datas = res.data;
             
             datas.forEach(function(d){
-                d['label']=d['label']
                 d['Foreigner'] = Math.round(d['Foreigner'])
                 d['Local'] = Math.round(d['Local']);
                 
@@ -15721,7 +15720,6 @@ legend.addTo(map);
             let datas = res.data;
             
             datas.forEach(function(d){
-                d['label']=d['label']
                 d['Foreigner'] = Math.round(d['Foreigner'])
                 d['Local'] = Math.round(d['Local']);
                 
@@ -15745,7 +15743,8 @@ legend.addTo(map);
             Clicked :null,
             Clicked2:null,
             city: null,
-            attraction: null
+            attraction: null,
+            markers:[]
         });
         this.map.setView(new L.LatLng(36.1427,127.55), 6);
     
@@ -15804,7 +15803,7 @@ legend.addTo(map);
 
         if( this.state.Clicked === null){
             lines2 = (
-                <LineChart width={950} height={250} data={this.state.purpose} className="line">
+                <LineChart width={950} height={220} data={this.state.purpose} className="line">
                     <CartesianGrid strokeDasharray="2 2"/>
                     <XAxis dataKey="label" />
                     <YAxis yAxisId="left" />
@@ -15819,7 +15818,7 @@ legend.addTo(map);
             )
         }else if(this.state.Clicked === true) {
             lines2 = (
-                <LineChart width={950} height={250} data={this.state.purpose3} className="line">
+                <LineChart width={950} height={220} data={this.state.purpose3} className="line">
                     <CartesianGrid strokeDasharray="2 2"/>
                     <XAxis dataKey="date" />
                     <YAxis yAxisId="left" />
@@ -15834,7 +15833,7 @@ legend.addTo(map);
             )
         }else if(this.state.Clicked === false){
             lines3 = (
-                <LineChart width={950} height={250} data={this.state.purpose2} className="line">
+                <LineChart width={950} height={220} data={this.state.purpose2} className="line">
                     <CartesianGrid strokeDasharray="2 2"/>
                     <XAxis dataKey="label" />
                     <YAxis yAxisId="left" />
@@ -15855,17 +15854,28 @@ legend.addTo(map);
                 <div id = "map"></div>
 
                 <div className="showRegionText">
-                    <span className="cityname">{this.state.city === null ? "South Korea" : this.state.city}</span>
-                    <span className="attractionname">{this.state.attraction === null ? "Attraction Name" : this.state.attraction}</span>
+                    <div className="dv3desc">
+                        <span className="dvHeader">This visualization dashboard aims to provide geospatial information about the number of visitors in the different regions in South Korea.</span>
+                        <span className="dvTag">Click on the Chloropeth Map to see the trend in the Province and click on the Markers on the Map to see the trend of each popular attraction! Also brush through the time series chart to find out more about the trend in detail!</span>
+                    </div>
+                    <div className="attractionname">
+                        <span className="city">{this.state.city === null ? "South Korea" : this.state.city}</span>
+                        <span className="attraction">{this.state.attraction === null ? "Attraction Name" : this.state.attraction}</span>
+                    </div>
                     <div className="resets">
                         <FontAwesomeIcon icon="undo-alt" className="reset-icon" onClick={this.resetFilters}/>
                         <span>Reset Map</span>
                     </div>
                 </div>
-
                 <div className="LineChart3">
-                    {lines2}
-                    {lines3}
+                    <div className="chartheader">
+                        <h2 className="headertext">Distribution of Local/Foreigners Across Time</h2>
+                        <h4 className="headerline">Brush the chart to filter the data intuitively.</h4>
+                    </div>
+                    <div className="linechart3">
+                        {lines2}
+                        {lines3}
+                    </div>
                 </div>
                 
                 

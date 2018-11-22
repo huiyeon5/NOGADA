@@ -3,15 +3,19 @@
     width: 95%;
     grid-area: mapid;
     margin:auto;
+    border-radius: 5px;
 }
 
 .LineChart3{
-    height: 100%;
-    width: 100%;
+    height: 95%;
+    width: 97.5%;
     grid-area: LineChart3;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    background: white;
+    margin:auto;
 }
 
 .dataviz3_2 {
@@ -38,18 +42,31 @@
     grid-template-areas:
         "city city"
         "attraction reset";
+    border-radius: 10px;
 }
 
-.cityname {
+.dv3desc {
     grid-area: city;
     width:100%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    font-size:50px;
+    flex-direction: column;
+    font-size:16px;
     font-family: 'Montserrat', sans-serif;
     background: #00c484;
+    text-align: center;
+}
+
+.dvHeader {
+    font-weight: 400;
+}
+
+.dvTag {
+    width:90%;
+    margin:0 auto;
+    font-size: 12px;
 }
 
 .attractionname {
@@ -57,12 +74,19 @@
     width:100%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    font-size:25px;
+    flex-direction: column;
+    font-size:22px;
     font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
     text-align: center;
     background: #00c484;
+}
+
+.city {
+    font-size: 28px;
+    font-weight: 400;
 }
 
 .resets {
@@ -73,7 +97,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background:#fe6f62;
+    background: #00c484;
     cursor: pointer;
 }
 
