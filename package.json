@@ -12,5 +12,9 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "pg-promise": "^8.5.2"
+  },
+  "engines": {
+    "node": "10.7.0",
+    "npm": "6.4.1"
   }
 }

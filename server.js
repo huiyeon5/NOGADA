@@ -1,6 +1,6 @@
 const express = require('express');
 const pgp = require('pg-promise')();
-const db = pgp("postgres://postgres:0000@localhost:5432/Dashboard")
+const db = pgp("postgres://postgres:admin@localhost:5432/Dashboard")
 const app = express();
 var bodyParser = require("body-parser");
 const port = process.env.PORT || 5000;
@@ -343,7 +343,7 @@ function getForeigner(req, res, next) {
     .then(function (data) {
       for(var i = 0; i < data.length-1; i = i + 2){
         var temp = {}
-        temp['label'] = data[i]['date'].toString().slice(8,15);
+        temp['label'] = data[i]['date'];
         temp['Foreigner'] =data[i]['sum'];
         temp['Local'] = data[i+1]['sum'];
         returnData.push(temp);

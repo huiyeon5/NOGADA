@@ -19,7 +19,7 @@ class Dashboard extends Component {
         this.goHome = this.goHome.bind(this);
         this.changeText = this.changeText.bind(this);
         this.setIndex = this.setIndex.bind(this);
-        this.bye = this.bye.bind(this);
+        // this.bye = this.bye.bind(this);
         this.state = {
             index:1
         };
@@ -39,11 +39,11 @@ class Dashboard extends Component {
         }
     }
      
-    bye(){
-        setTimeout(function(){
-            document.querySelector('.loading').style.display = 'none';
-        },5000)
-    }
+    // bye(){
+    //     setTimeout(function(){
+    //         document.querySelector('.loading').style.display = 'none';
+    //     },5000)
+    // }
 
     setIndex(index){
         this.setState({index});
@@ -59,10 +59,10 @@ class Dashboard extends Component {
             visual = <DataViz3 />
         }
         return ( 
-            <div className="dashboard-div" onLoad={this.bye}>
-                <div className="loading" >
+            <div className="dashboard-div">
+                {/* <div className="loading" >
                     <ReactLoading type={"spinningBubbles"} color={"#00c484"} className="loader"/> 
-                </div>
+                </div> */}
                 <div className="Dashboard">
                     <Head headtext={this.changeText()} />
                     <div className="sidebar">

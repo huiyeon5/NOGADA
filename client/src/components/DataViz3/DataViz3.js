@@ -1,5 +1,5 @@
 import React, { Component } from 'react';  
-import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Brush,Bar, BarChart} from "recharts";
+import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Brush} from "recharts";
 import './DataViz3.css'
 import L from 'leaflet';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -61,7 +61,7 @@ class DataViz3 extends Component {
             .then(res => {
                 let datas = res.data;
                 datas.forEach(function(d){
-                    d['label'] = d['label']
+                    d['label'] = d['label'].slice(0,10);
                     d['Foreigner'] = Math.round(d['Foreigner'])
                     d['Local'] = Math.round(d['Local']);
                 })
@@ -82,6 +82,7 @@ class DataViz3 extends Component {
                 }),
             ]            
         });
+
         var geojsondata ={
             "type": "FeatureCollection",
             "features": [
@@ -15529,7 +15530,8 @@ class DataViz3 extends Component {
             return div;
         };
 
-    legend.addTo(map);
+        legend.addTo(map);
+
         
         L.geoJSON(geojsondata).addTo(this.map);
         this.setState({geojsondata});
@@ -15568,6 +15570,8 @@ class DataViz3 extends Component {
                 dashArray: '',
                 fillOpacity: 0.5
             });
+
+            
 
             if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
                 layer.bringToFront();
@@ -15698,7 +15702,6 @@ class DataViz3 extends Component {
             this.setState({purpose3: datas,Clicked: true,purposeY2: datas2,Clicked2: true,city:e.propagatedFrom.feature.properties.name_eng})
         }.bind(this));
 
-        var info = L.control();
         
         //Over-all Tourist visitors from 2008-2013
         this.postData('/getForeigner',{})
@@ -15706,6 +15709,7 @@ class DataViz3 extends Component {
             let datas = res.data;
             
             datas.forEach(function(d){
+                d['label'] = d['label'].slice(0,10);
                 d['Foreigner'] = Math.round(d['Foreigner'])
                 d['Local'] = Math.round(d['Local']);
                 
@@ -15720,6 +15724,7 @@ class DataViz3 extends Component {
             let datas = res.data;
             
             datas.forEach(function(d){
+                d['label'] = d['label'].slice(0,10);
                 d['Foreigner'] = Math.round(d['Foreigner'])
                 d['Local'] = Math.round(d['Local']);
                 
@@ -15738,6 +15743,9 @@ class DataViz3 extends Component {
     resetFilters = () => {
         let reset = document.querySelector('.reset-icon');
         reset.style.animation = 'rotate 0.5s linear';
+        setTimeout(function() {
+            reset.style.animation = 'none';
+        },500);
         this.setState({
             selectedCountry:null,
             Clicked :null,
@@ -15746,11 +15754,13 @@ class DataViz3 extends Component {
             attraction: null,
             markers:[]
         });
+        var self =this;
+        if (this.state.markers.length !== 0){
+            this.state.markers.forEach(function(marker){
+                self.map.removeLayer(marker)
+            });
+        }
         this.map.setView(new L.LatLng(36.1427,127.55), 6);
-    
-    
-    
-    
     }
 
     
@@ -15855,12 +15865,12 @@ class DataViz3 extends Component {
 
                 <div className="showRegionText">
                     <div className="dv3desc">
-                        <span className="dvHeader">This visualization dashboard aims to provide geospatial information about the number of visitors in the different regions in South Korea.</span>
-                        <span className="dvTag">Click on the Chloropeth Map to see the trend in the Province and click on the Markers on the Map to see the trend of each popular attraction! Also brush through the time series chart to find out more about the trend in detail!</span>
+                        <span className="dvHeader">Geospatial information about the number of visitors in the different regions in South Korea.</span>
+                        <span className="dvTag">Click on the Chloropeth Map to see the trend in the Province and click on the Markers on the Map to see the trend of each popular attraction!</span>
                     </div>
                     <div className="attractionname">
-                        <span className="city">{this.state.city === null ? "South Korea" : this.state.city}</span>
-                        <span className="attraction">{this.state.attraction === null ? "Attraction Name" : this.state.attraction}</span>
+                        <span className="city">{this.state.city === null ? "Click on a Province" : this.state.city}</span>
+                        <span className="attraction">{this.state.attraction === null ? "Click on Marker" : this.state.attraction}</span>
                     </div>
                     <div className="resets">
                         <FontAwesomeIcon icon="undo-alt" className="reset-icon" onClick={this.resetFilters}/>
