@@ -21,7 +21,7 @@ class Landing extends Component {
     }
 
     componentDidMount(){
-        document.querySelector(".htmlloader").style.display = 'none';
+        
 
         setTimeout(function () {
             let tag = document.querySelector('.headers');

@@ -5,6 +5,11 @@ import About from '../About/About';
 
 
 class Start extends Component {
+
+    componentDidMount() {
+        document.querySelector(".htmlloader").style.display = 'none';
+    }
+
     render(){
         return (
             <div className="App">
