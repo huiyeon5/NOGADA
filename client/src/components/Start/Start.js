@@ -9,7 +9,7 @@ class Start extends Component {
     componentDidMount() {
         setTimeout(function() {
             document.querySelector(".htmlloader").style.display = 'none';
-        },1000);
+        },5000);
     }
 
     render(){
