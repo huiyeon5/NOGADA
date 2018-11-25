@@ -15613,7 +15613,9 @@ class DataViz3 extends Component {
             const body = await response.json();
 
             let datas = body.data;
-
+            datas.forEach(function(d) {
+                d['date'] = d['date'].slice(0,10);
+            })
             const response2 = await fetch('/getno_of_visitors_onTY', {
                 method: 'POST',
                 headers: {
@@ -15630,15 +15632,16 @@ class DataViz3 extends Component {
             this.postData('/getTourist_attraction',{city:e.propagatedFrom.feature.properties.name_eng})
             .then(res => {
                 var ms = []; 
-                let datas = res.data;
-                datas.forEach(function(d){
+                let datass = res.data;
+                datass.forEach(function(d){
+
                     d['x'] = parseFloat(d['x']);
                     d['y'] = parseFloat(d['y']);
                 })
                 var self = this;       
                    
-                for (var i = 0; i < datas.length; i++) {
-                    var m = L.marker([datas[i]['x'],datas[i]['y']]).addTo(map)
+                for (var i = 0; i < datass.length; i++) {
+                    var m = L.marker([datass[i]['x'],datass[i]['y']]).addTo(map)
                     ms.push(m);
                     m.on('click', async function(e) {
                     console.log(e);
@@ -15661,12 +15664,12 @@ class DataViz3 extends Component {
                         // body:JSON.stringify(bodyObj)
                     })
                     const body = await response.json();
-                    let datas = body.data;
+                    let datasss = body.data;
                     let dataList = []
-                    datas.forEach(function(d){
+                    datasss.forEach(function(d){
                         if(d['x'] === e.latlng['lat'].toString() && d['y'] === e.latlng['lng'].toString()){
                             let temp = {}
-                            temp['label']=d['label']
+                            temp['label']=d['label'].slice(0,10);
                             temp['Foreigner'] = Math.round(d['Foreigner'])
                             temp['Local'] = Math.round(d['Local']);
                             dataList.push(temp)
@@ -15687,7 +15690,7 @@ class DataViz3 extends Component {
                     datas2.forEach(function(dd){
                         if(dd['x'] === e.latlng['lat'].toString() && dd['y'] === e.latlng['lng'].toString()){
                             let temp = {}
-                            temp['label']=dd['label']
+                            temp['label']=dd['label'].slice(0,10);
                             temp['Foreigner'] = Math.round(dd['Foreigner'])
                             temp['Local'] = Math.round(dd['Local']);
                             dataList2.push(temp)

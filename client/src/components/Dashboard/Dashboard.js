@@ -25,6 +25,13 @@ class Dashboard extends Component {
         };
     }
 
+    componentDidMount() {
+        if(window.location.href === 'localhost:3000/dashboard' || window.location.href === 'www.nogada.ml/dashboard') {
+            document.querySelector(".htmlloader").style.display = 'none'
+        }
+        document.querySelector(".htmlloader").style.display = 'none'
+    }
+
     goHome(){
         window.location = '/'
     }
