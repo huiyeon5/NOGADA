@@ -308,7 +308,7 @@ function getlocal(req, res, next) {
     .then(function (data) {
       for(var i = 0; i < data.length-1; i = i + 2){
         var temp = {}
-        temp['label'] = data[i]['date'].toString().slice(8,15);
+        temp['label'] = data[i]['date'].slice(0,10);
         temp['x'] = data[i]['x'];
         temp['y'] = data[i]['y'];
         temp['Foreigner'] =data[i]['sum'];
@@ -333,7 +333,7 @@ function getlocalY(req, res, next) {
     .then(function (data) {
       for(var i = 0; i < data.length-1; i = i + 2){
         var temp = {}
-        temp['label'] = data[i]['date'].toString().slice(8,15);
+        temp['label'] = data[i]['date'].slice(0,10);
         temp['x'] = data[i]['x'];
         temp['y'] = data[i]['y'];
         temp['Foreigner'] =data[i]['sum'];
@@ -397,7 +397,7 @@ function getForeigner_FilterY(req, res, next) {
     .then(function (data) {
       for(var i = 0; i < data.length-1; i = i + 2){
         var temp = {}
-        temp['label'] = data[i]['date'].toString().slice(8,15);
+        temp['label'] = data[i]['date'].slice(0,10);
         temp['Foreigner'] =data[i]['sum'];
         temp['Local'] = data[i+1]['sum'];
         returnData.push(temp);
@@ -445,7 +445,7 @@ function getno_of_visitors_onTY(req, res, next) {
         temp['city'] = data[i]['city'];
         temp['Foreigner']=data[i]['sum']
         temp['Local']=data[i+1]['sum']
-        temp['date']=data[i]['date'].toString().slice(8,15)
+        temp['date']=data[i]['date'].slice(0,10)
         returnData.push(temp);
       }
       res.status(200)
@@ -469,7 +469,7 @@ function getno_of_visitors_onT(req, res, next) {
         temp['city'] = data[i]['city'];
         temp['Foreigner']=data[i]['sum']
         temp['Local']=data[i+1]['sum']
-        temp['date']=data[i]['date'].toString().slice(8,15)
+        temp['date']=data[i]['date'].slice(0,10)
         returnData.push(temp);
       }
       res.status(200)
