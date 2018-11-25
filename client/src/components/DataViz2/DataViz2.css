@@ -20,6 +20,8 @@
 
 .dataviz2{
     width:100%;
+    min-width: 1200px;
+    background: whitesmoke;
     height:100%;
     display: grid;
     grid-template-columns: 50% 50%;

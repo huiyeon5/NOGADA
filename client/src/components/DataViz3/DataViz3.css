@@ -28,6 +28,7 @@
     grid-template-areas: 
             "mapid showtext"
             "LineChart3 LineChart3";
+    background: whitesmoke;
 }
 
 .showRegionText{
