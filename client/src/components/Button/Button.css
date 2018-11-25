@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Charmonman');
 .dash{
-    z-index: 9999;
+    z-index: 9999999;
     grid-row-start: 6;
     grid-row-end: 7;
     grid-column-start: 4;
@@ -11,7 +11,7 @@
 }
 
 .dash-button{
-    z-index: 9999;
+    z-index: 99999;
     width:100%;
     height: 100%;
     cursor: pointer;
