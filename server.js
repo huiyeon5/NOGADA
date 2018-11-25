@@ -1,9 +1,11 @@
 const express = require('express');
 const pgp = require('pg-promise')();
 const db = pgp("postgres://postgres:admin@localhost:5432/Dashboard")
+const path = require('path');
 const app = express();
 var bodyParser = require("body-parser");
 const port = process.env.PORT || 5000;
+app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
