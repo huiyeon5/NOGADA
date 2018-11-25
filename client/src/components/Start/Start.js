@@ -7,7 +7,9 @@ import About from '../About/About';
 class Start extends Component {
 
     componentDidMount() {
-        document.querySelector(".htmlloader").style.display = 'none';
+        setTimeout(function() {
+            document.querySelector(".htmlloader").style.display = 'none';
+        },1000);
     }
 
     render(){

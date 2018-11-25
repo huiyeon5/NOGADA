@@ -17,8 +17,15 @@ body {
   justify-content: center;
   align-items: center;
   background: white;
+  flex-direction: column;
   position: absolute;
   z-index: 99999999999999999999999999;
+}
+
+.htmlloader > p {
+  color:rgb(11, 165, 241);
+  font-family: 'Arial', sans-serif;
+  padding-top: 10px;
 }
 
 .lds-roller {
