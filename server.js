@@ -19,6 +19,12 @@ app.use(bodyParser.json());
 // console.log that your server is up and running
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
+app.get('/hello', function(req, res) {
+  res.json({
+    "heloo":"hello"
+  })
+})
+
 app.post('/get_all_purpose', getAllPurpose);
 app.post('/get_gender', getGender);
 app.post('/get_all_stay', getAllStay);

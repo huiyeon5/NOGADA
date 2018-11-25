@@ -18,5 +18,5 @@
     "node": "10.7.0",
     "npm": "6.4.1"
   },
-  "heroku-postbuild": "npm install && cd client && npm install --only-dev && npm install && npm run build"
+  "heroku-postbuild": "npm install"
 }
