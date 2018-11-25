@@ -1,6 +1,6 @@
 const express = require('express');
 const pgp = require('pg-promise')();
-const db = pgp("postgres://postgres:admin@localhost:5432/Dashboard")
+const db = pgp("postgres://kgxwausamcwkqp:ce08350422aecf51772f8c9e59425db4fc6fcbdafa9dda311308a9bc4f92dc49@ec2-50-19-249-121.compute-1.amazonaws.com:5432/d8k2v0a1rdpcjn");
 const path = require('path');
 const app = express();
 var bodyParser = require("body-parser");
