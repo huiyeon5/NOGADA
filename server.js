@@ -6,16 +6,12 @@ const app = express();
 var bodyParser = require("body-parser");
 const port = process.env.PORT || 5000;
 
-if (process.env.NODE_ENV === 'production') {
-  // Exprees will serve up production assets
-  app.use(express.static(path.join(__dirname,'client/build')));
+app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'build')));
 
-  // Express serve up index.html file if it doesn't recognize route
-  const path = require('path');
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/build/index.html'));
-  });
-}
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

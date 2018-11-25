@@ -1,3 +1,6 @@
 /node_modules
 /client/node_modules
-/client/build
+/client/src/*
+/client/public/*
+/client/build/static/css/*.map
+/client/build/static/js/*.map
